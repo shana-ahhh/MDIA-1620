@@ -65,6 +65,26 @@
 // Create a variable and use it to store a message that monthly payment is late, and the amount owing.
 // Include the name of your horse in the message.
 
+let horseName = "Jelly";
+let horseAge = "5";
+let isHorseInside = true;
+let monthlyFee = 100;
+let latePaymentFee = monthlyFee * 0.2;
+
+let welcomeMessage = "Welcome to my stables!";
+let latePaymentMessage =
+    "The monthly payment for " +
+    horseName +
+    " is " +
+    monthlyFee +
+    "." +
+    " The fee due to late monthly payment is " +
+    latePaymentFee +
+    "." +
+    "The total fee is " +
+    (monthlyFee + latePaymentFee) +
+    ".";
+
 //------------------------- First day (Lab #1b, Week 4) -------------------------//
 
 // Using an object, add at least 3 horses to your stables.
@@ -84,6 +104,57 @@
 // Initialize new property to your horses: a boolean that allows you to check if your horse
 // is hungry or not. Use dot notation.
 
+let horses = {
+    horseOne: {
+        name: horseName,
+        nickname: "Choco",
+        favTreat: "candy",
+        age: 3,
+        monthlyRent: monthlyFee,
+        isOutside: true,
+        colour: "black",
+        trainingLevel: "beginner",
+    },
+    horseTwo: {
+        name: "Lily",
+        nickname: "Milk",
+        favTreat: "peanut",
+        age: 7,
+        monthlyRent: 130,
+        isOutside: false,
+        colour: "brown",
+        trainingLevel: "advanced",
+    },
+    horseThree: {
+        name: "Flora",
+        nickname: "Bubble",
+        favTreat: "chips",
+        age: 10,
+        monthlyRent: 155,
+        isOutside: true,
+        colour: "white",
+        trainingLevel: "intermediate",
+    },
+};
+
+let newHorse = {
+    name: "Leena",
+    nickname: "Tea",
+    favTreat: "potato",
+    age: 4,
+    monthlyRent: 80,
+    isOutside: false,
+    colour: "yellow",
+    trainingLevel: "beginner",
+};
+
+horses.horseFour = newHorse;
+
+horses.horseOne.isHungry = true;
+horses.horseTwo.isHungry = false;
+horses.horseThree.isHungry = false;
+horses.horseFour.isHungry = true;
+
 //------------------------- Growing our business (Lab #2, Week 6) -------------------------//
 
 // Create a variable that stores your total number of stalls.
@@ -94,3 +165,29 @@
 
 // Create and invoke a function that returns (not logs) the nickname of a chosen horse. Log out
 // the return value outside of the function.
+
+let totalStalls = 15;
+function availableStalls() {
+    let totalOfHorses = 4;
+    console.log(totalStalls - totalOfHorses + " stalls are available.");
+}
+
+availableStalls();
+
+function owedRent() {
+    console.log(
+        horses.horseOne.name +
+            " will owe $" +
+            latePaymentFee +
+            " if rent is paid late."
+    );
+}
+
+owedRent();
+
+function chosenHorse(horse) {
+    return horse.nickname;
+}
+
+let horseNickname = chosenHorse(horses.horseThree);
+console.log(horses.horseThree.name + "'s nickname is " + horseNickname + "!");
