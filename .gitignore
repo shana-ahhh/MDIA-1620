@@ -1,0 +1,4 @@
+# Stuff to ignore and never ever commit.
+
+.DS_Store
+.history/*
